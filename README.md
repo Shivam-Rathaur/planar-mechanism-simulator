@@ -1,20 +1,46 @@
-# ⚙️ Planar Mechanism Simulator
+# Planar Mechanism Simulator
 
-**Course:** ME2220 — Kinematics and Dynamics of Mechanisms  
+**Course:** ME2220 - Kinematics and Dynamics of Mechanisms  
 **Institute:** Indian Institute of Technology Hyderabad  
-**Semester:** January – April 2026  
+**Semester:** January - April 2026  
 
-A single-file Python desktop application that simulates, animates, and analyses two fundamental planar mechanisms — the **Four-Bar Linkage** and the **Slider-Crank Mechanism** — covering all five course project tasks inside one tabbed GUI.
+A single-file Python desktop application that simulates, animates, and analyses two fundamental planar mechanisms - the **Four-Bar Linkage** and the **Slider-Crank Mechanism** - covering all five course project tasks inside one tabbed GUI.
 
 ---
 
-## 📸 Screenshots
+## Demonstration
 
-| Four-Bar Animation | Coupler Curve | Slider-Crank |
-|---|---|---|
-| Task 1 — Live animation with Grashof classification | Task 3 — Coupler path + \|Vp\| and \|Ap\| plots | Task 4 — All four kinematic inversions |
+### Four-Bar Mechanism
 
-> Add your own screenshots here after cloning — drop `.png` files into a `docs/` folder and update the paths above.
+**Task 1: Live Animation with Grashof Classification**  
+![Task 1 - Four-Bar Animation](docs/task1_fourbar_animation.png)
+> Crank-Rocker configuration (Link 4 grounded, L1=2, L2=5, L3=4, L4=5). The status bar and plot title show the automatically detected Grashof type. Animation bounces smoothly at toggle positions for rocking mechanisms.
+
+---
+
+**Task 2: Velocity & Acceleration Polygon Diagrams**  
+![Task 2 - Velocity and Acceleration Polygons](docs/task2_velocity_acceleration_polygons.png)
+> At θ₂ = 60°, ω₂ = 10 rad/s, α₂ = 0. Left: position diagram with ground pins. Middle: velocity polygon (Vₐ, V_b, V_ba). Right: acceleration polygon (Aₐ, A_b, A_ba). All vectors drawn to scale with magnitudes labelled.
+
+---
+
+**Task 3: Coupler Curve Path + |Vp| and |Ap| vs θ₂**  
+![Task 3 - Coupler Curve](docs/task3_coupler_curve.png)
+> Coupler point P traced with Rp = 3.0, δ = 30°, sweeping all 360 valid crank positions. Left: the coupler curve path (figure-eight shape). Middle: |Vp| vs θ₂. Right: |Ap| vs θ₂. NaN gaps are inserted near toggle positions instead of unphysical spikes.
+
+---
+
+### Slider-Crank Mechanism
+
+**Task 4: Animated Slider-Crank (Standard Inversion)**  
+![Task 4 - Slider-Crank Animation](docs/task4_slidercrank_animation.png)
+> Inversion 1 (Standard — frame fixed, piston engine layout). Crank radius a = 2.0, connecting rod b = 6.0. The slider block moves horizontally along the sliding axis as the crank rotates.
+
+---
+
+**Task 5: Slider-Crank Velocity & Acceleration Polygons**  
+![Task 5 - Slider Vel Acc Polygons](docs/task5_slider_vel_acc_polygons.png)
+> At θ₂ = 60°, ω₂ = 10 rad/s, α₂ = 0. Status bar reports θ₃ = −16.78°, ω₃ = −1.741 rad/s, V_slider = −20.336 units/s, A_slider = −66.767 units/s². Left: mechanism position. Middle: velocity polygon. Right: acceleration polygon.
 
 ---
 
@@ -23,9 +49,15 @@ A single-file Python desktop application that simulates, animates, and analyses 
 ```
 planar-mechanism-simulator/
 │
-├── simulator.py          ← Main application (run this)
-├── requirements.txt      ← Python dependencies
-└── README.md             ← This file
+├── mechanism_simulator.py                  # main application (run this)
+├── requirements.txt                        # python dependencies
+├── README.md                               # this file
+└── docs/
+    ├── task1_fourbar_animation.png
+    ├── task2_velocity_acceleration_polygons.png
+    ├── task3_coupler_curve.png
+    ├── task4_slidercrank_animation.png
+    └── task5_slider_vel_acc_polygons.png
 ```
 
 ---
@@ -46,11 +78,6 @@ planar-mechanism-simulator/
 |------|-------------|
 | **Task 4** | Animated simulation of all **four kinematic inversions**: Standard (piston engine), Rotary/Gnome Engine, Oscillating Cylinder, and Pendulum Pump. Each inversion is implemented as a rigid-body coordinate transform. |
 | **Task 5** | Static **velocity and acceleration polygon** at a given θ₂, showing crank velocity VA, slider velocity VB, and the relative velocity/acceleration vectors. |
-
-### Bonus
-- All five tasks bundled into a single unified GUI window with two tabs.
-- Dark GitHub-style theme throughout (both the Qt UI and all Matplotlib plots).
-- Real-time speed control slider and stop button on both tabs.
 
 ---
 
