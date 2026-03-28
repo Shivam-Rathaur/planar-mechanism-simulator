@@ -1,3 +1,4 @@
+
 # Planar Mechanism Simulator
 
 **Course:** ME2220 - Kinematics and Dynamics of Mechanisms  
@@ -206,36 +207,6 @@ matplotlib>=3.7.0
 2. Choose the **Inversion** from the drop-down (1 = standard piston engine).
 3. Click **Task 4** to start the animation.
 4. For **Task 5**, set θ₂, ω₂, α₂ and click the button.
-
----
-
-## ⚠️ Edge Cases Handled
-
-| Situation | How it is handled |
-|-----------|-------------------|
-| Non-Grashof / rocking mechanisms | Bounces within the first contiguous valid angular segment only — no jumps between open and crossed assembly modes |
-| Near-toggle singularity (Task 3) | `disc < 0.30` → `NaN` inserted in Vp/Ap; Matplotlib renders a clean gap instead of a spike |
-| Degenerate Freudenstein (`A ≈ 0`) | Falls back to linear solution `t = −C/B` |
-| Singular velocity Jacobian | `abs(det(J)) < 1e-8` guard returns zeros gracefully |
-| arcsin domain errors in slider-crank | `np.clip(−Ay/b, −1, 1)` before `arcsin` |
-| `cos(θ₃) ≈ 0` in Task 5 | Explicit guard with user-friendly status-bar error message |
-| Windows DPI scaling font warning | All font sizes use `pt` units instead of `px` |
-| Mechanism cannot assemble | `calc_fourbar` returns `None`; animation frame is silently skipped |
-
----
-
-## 📐 Scoring Breakdown
-
-| Task | Marks | What is demonstrated |
-|------|-------|----------------------|
-| Task 1 — Four-Bar Animation | 3 | Grashof check, position analysis, live animation |
-| Task 2 — Vel & Acc Polygons | 2 | Jacobian method, vector polygon diagrams |
-| Task 3 — Coupler Curves | 1 | Coupler-point kinematics, path and kinematic plots |
-| Task 4 — Slider-Crank Inversions | 2 | All four inversions, rigid-body transform |
-| Task 5 — Slider Vel & Acc | 2 | Scalar slider-crank analysis, polygon diagrams |
-| **Bonus — Unified GUI** | **1–2** | All tasks in one window, dark theme, speed control |
-| **Total** | **10 + 2** | |
-
 ---
 
 ## 🛠️ Tech Stack
@@ -259,14 +230,20 @@ matplotlib>=3.7.0
 
 ## 👤 Author
 
-**[Your Name]**  
+**Shivam Rathaur**  
 B.Tech, Department of Mechanical & Aerospace Engineering  
 Indian Institute of Technology Hyderabad  
-[your.email@iith.ac.in]
+[ms23btech11025@iith.ac.in]
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Shivam%20Rathaur-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shivam-rathaur/)
+
+---
+
+Made with ❤️ by © **Shivam Rathaur** - IIT Hyderabad
 
 ---
 
 ## 📄 License
 
-This project was submitted as part of a university course assignment.  
+This project was developed as a course assignment.
 You are welcome to study, reference, or build upon this code with attribution.
